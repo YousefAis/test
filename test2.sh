@@ -1,11 +1,16 @@
-sudo apt-get install -y whatever
+echo -e "\n---- install postgresql-10 ----"
 sudo apt -y install postgresql-10 # version 10
+echo -e "\n---- createuser ----"
 sudo -u postgres createuser odoo11 --interactive -p 5432
 sudo mkdir /opt/odoo
 sudo chown root:odoo /opt/odoo
+
+echo -e "\n---- Clone odoo 11 ----"
 git clone -b 11.0 git@github.com:odoo/odoo.git /opt/odoo/odoo11
 sudo chown -hR root:odoo /opt/odoo/odoo11
 sudo apt update; sudo apt dist-upgrade
+
+echo -e "\n---- python 3.5 ----"
 
 sudo apt -y install make build-essential libreadline-dev \
 wget curl llvm libssl-dev zlib1g-dev libbz2-dev  \
@@ -20,10 +25,12 @@ cd Python-3.6.15
 ./configure --enable-optimizations --with-lto --with-pydebug
 make -j 2  
 
+echo -e "\n----  altinstall ----"
 sudo make altinstall
 
 python3.6 -V
 
+echo -e "\n---- python3-pip ----"
 sudo apt -y install python3-pip
 
 sudo mkdir -p /python-venv/3.6/odoo11
@@ -34,16 +41,21 @@ sudo su - odoo11 -s /bin/bash
 
 python3.6 -m venv /python-venv/3.6/odoo11
 
+echo -e "\n----  python dep ----"
+
 sudo apt -y install libjpeg-dev libjpeg-turbo8-dev \
 libjpeg8-dev libldap-dev libldap2-dev libpq-dev \
 libsasl2-dev libxslt1-dev
 
+echo -e "\n---- nodejs ----"
 sudo apt -y install nodejs
 
+echo -e "\n----  npm ----"
 sudo apt -y install npm
 
 sudo npm -y install -g npm
 
+echo -e "\n----less ----"
 sudo npm -y install -g less@3.10.3
 sudo npm -y install -g less-plugin-clean-css
 
