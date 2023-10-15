@@ -1,3 +1,4 @@
+sudo apt-get install -y whatever
 sudo apt install postgresql-10 # version 10
 sudo -u postgres createuser odoo11 --interactive -p 5432
 sudo mkdir /opt/odoo
