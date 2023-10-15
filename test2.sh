@@ -1,5 +1,5 @@
 sudo apt-get install -y whatever
-sudo apt install postgresql-10 # version 10
+sudo apt -y install postgresql-10 # version 10
 sudo -u postgres createuser odoo11 --interactive -p 5432
 sudo mkdir /opt/odoo
 sudo chown root:odoo /opt/odoo
@@ -7,7 +7,7 @@ git clone -b 11.0 git@github.com:odoo/odoo.git /opt/odoo/odoo11
 sudo chown -hR root:odoo /opt/odoo/odoo11
 sudo apt update; sudo apt dist-upgrade
 
-sudo apt install make build-essential libreadline-dev \
+sudo apt -y install make build-essential libreadline-dev \
 wget curl llvm libssl-dev zlib1g-dev libbz2-dev  \
 libsqlite3-dev libncurses5-dev libncursesw5-dev \
 xz-utils tk-dev libffi-dev liblzma-dev libgdbm-dev \
@@ -24,7 +24,7 @@ sudo make altinstall
 
 python3.6 -V
 
-sudo apt install python3-pip
+sudo apt -y install python3-pip
 
 sudo mkdir -p /python-venv/3.6/odoo11
 
@@ -34,18 +34,18 @@ sudo su - odoo11 -s /bin/bash
 
 python3.6 -m venv /python-venv/3.6/odoo11
 
-sudo apt install libjpeg-dev libjpeg-turbo8-dev \
+sudo apt -y install libjpeg-dev libjpeg-turbo8-dev \
 libjpeg8-dev libldap-dev libldap2-dev libpq-dev \
 libsasl2-dev libxslt1-dev
 
-sudo apt install nodejs
+sudo apt -y install nodejs
 
-sudo apt install npm
+sudo apt -y install npm
 
-sudo npm install -g npm
+sudo npm -y install -g npm
 
-sudo npm install -g less@3.10.3
-sudo npm install -g less-plugin-clean-css
+sudo npm -y install -g less@3.10.3
+sudo npm -y install -g less-plugin-clean-css
 
 wget https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6.1-2/wkhtmltox_0.12.6.1-2.jammy_amd64.deb
 
